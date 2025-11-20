@@ -13,8 +13,6 @@ Antes de qualquer coisa **entre no shell do pod/contêiner atacante** (assume-se
 No host (apenas para entrar no atacante):
 
 ```bash
-docker exec -it lab_attacker /bin/sh
-# ou, se a imagem tiver bash:
 docker exec -it lab_attacker /bin/bash
 ```
 
@@ -52,9 +50,6 @@ Verifique se o `nmap` está disponível:
 ```sh
 nmap --version
 ```
-
-Se não estiver, avise (mas a imagem sugerida já traz `nmap` instalado).
-
 ---
 
 ## 2 — Coleta de informações iniciais (somente dentro do atacante)
@@ -216,8 +211,6 @@ grep -i "open" *.nmap
 # procurar menções a "vuln" nos resultados de scripts
 grep -i "vuln" *.nmap || true
 
-# ver XML com ferramenta xsltproc (se disponível)
-# xsltproc /usr/share/nmap/nmap.xsl host_discovery.xml > host_discovery.html
 ```
 
 Você pode copiar os arquivos do container para o host com `docker cp` (executar no host):
@@ -285,14 +278,6 @@ nmap --script=vuln -sV $TARGET -oA 04_vuln_scan_$TARGET
 ```
 
 > Observação: o pequeno comando para determinar `SUBNET` faz uma suposição `/24` — verifique a máscara real com `ip -4 addr show eth0` e ajuste conforme necessário.
-
----
-
-## Recursos e próximos passos
-
-* Adicionar aplicações intencionalmente vulneráveis (DVWA / Juice Shop) para prática de scanners web.
-* Gerar um `scan_all.sh` que pergunta por TARGET e executa o fluxo automaticamente (posso gerar esse script para você).
-* Importar XMLs do nmap em ferramentas de relatório (Faraday, Dradis).
 
 ---
 

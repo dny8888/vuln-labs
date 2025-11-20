@@ -8,6 +8,11 @@ services:
     command: ["tail", "-f", "/dev/null"]   # mantém o container vivo
     networks:
       - labnet
+    # Se quiser que o `ping` funcione sem privilégios adicionais, descomente o exemplo abaixo
+    # e habilite a capability NET_RAW. Manter comentado por padrão para não aumentar privilégios.
+    cap_add:
+      - NET_RAW
+      - NET_ADMIN
 
   web_nginx:
     image: nginx:alpine
@@ -24,6 +29,7 @@ services:
   ssh:
     image: rastasheep/ubuntu-sshd:18.04
     container_name: lab_ssh
+    command: ["tail", "-f", "/dev/null"]   # mantém o container vivo
     environment:
       - SSH_PASSWORD=toor
     networks:
@@ -64,6 +70,7 @@ services:
   smtp:
     image: mailhog/mailhog
     container_name: lab_smtp
+    command: ["tail", "-f", "/dev/null"]   # mantém o container vivo
     networks:
       - labnet
 
