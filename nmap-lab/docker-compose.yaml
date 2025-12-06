@@ -29,7 +29,11 @@ services:
   ssh:
     image: rastasheep/ubuntu-sshd:18.04
     container_name: lab_ssh
-    command: ["tail", "-f", "/dev/null"]   # mantém o container vivo
+    command: >
+      /bin/bash -c "
+      service ssh start &&
+      tail -f /dev/null
+      "
     environment:
       - SSH_PASSWORD=toor
     networks:
@@ -39,9 +43,13 @@ services:
     image: stilliard/pure-ftpd:hardened
     container_name: lab_ftp
     environment:
-      - PUBLICHOST=ftp
+      - PUBLICHOST=localhost
+      - FTP_USER_NAME=ftpuser          # Usuário FTP
+      - FTP_USER_PASS=ftppass          # Senha FTP
+      - FTP_USER_HOME=/home/ftpusers/ftpuser  # Diretório home
     networks:
       - labnet
+    restart: unless-stopped
 
   mysql:
     image: mysql:5.7
@@ -81,6 +89,10 @@ services:
     volumes:
       - ./dnsmasq/dnsmasq.conf:/etc/dnsmasq.conf:ro
       - ./dnsmasq/dnsmasq.hosts:/etc/dnsmasq.hosts:ro
+    cap_add:
+      - NET_ADMIN
+      - NET_BIND_SERVICE
+      - NET_RAW
     networks:
       - labnet
     restart: unless-stopped
