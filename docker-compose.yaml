@@ -28,15 +28,15 @@ services:
         ipv4_address: 10.89.0.4
 
   ssh:
-    image: rastasheep/ubuntu-sshd:18.04
+    image: linuxserver/openssh-server:latest
     container_name: lab_ssh
-    command: >
-      /bin/bash -c "
-      service ssh start &&
-      tail -f /dev/null
-      "
     environment:
-      - SSH_PASSWORD=toor
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Sao_Paulo
+      - PASSWORD_ACCESS=true
+      - USER_PASSWORD=weakpass123
+      - USER_NAME=labuser
     networks:
       labnet:
         ipv4_address: 10.89.0.5
