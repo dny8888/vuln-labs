@@ -1,4 +1,25 @@
-# NMAP-LAB — README.md
+# 🎯 DOCKER-LAB - Pentest Training Environment
+
+[![Docker](https://img.shields.io/badge/Docker-Required-blue)]()
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]()
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)]()
+
+> Ambiente Docker completo para treinamento em Nmap e técnicas de Red Team
+
+## 🌟 Features
+
+- 🐳 **10+ serviços vulneráveis** isolados em containers
+- 🎓 **Desafios CTF progressivos** (iniciante → avançado)
+- 🤖 **Scripts de automação** para scans e análises
+- 📊 **Análise de resultados** com Python
+- 📚 **Documentação completa** com exemplos práticos
+- 🔒 **Totalmente offline** e seguro para aprendizado
+
+[Demo Video](todo) | [Challenges](comming_soon) | [Documentation](comming_soon)
+
+------------
+
+## NMAP-LAB — README.md
 
 > Laboratório Docker para treinar **nmap** (tudo executado **a partir do shell do pod atacante**).
 > Objetivo: simular uma campanha de reconhecimento e enumeração de uma rede interna composta por containers (cada “pod” = container).
