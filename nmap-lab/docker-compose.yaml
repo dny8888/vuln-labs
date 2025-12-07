@@ -7,9 +7,8 @@ services:
     stdin_open: true
     command: ["tail", "-f", "/dev/null"]   # mantém o container vivo
     networks:
-      - labnet
-    # Se quiser que o `ping` funcione sem privilégios adicionais, descomente o exemplo abaixo
-    # e habilite a capability NET_RAW. Manter comentado por padrão para não aumentar privilégios.
+      labnet:
+        ipv4_address: 10.89.0.2
     cap_add:
       - NET_RAW
       - NET_ADMIN
@@ -18,13 +17,15 @@ services:
     image: nginx:alpine
     container_name: lab_nginx
     networks:
-      - labnet
+      labnet:
+        ipv4_address: 10.89.0.3
 
   web_apache:
     image: httpd:alpine
     container_name: lab_apache
     networks:
-      - labnet
+      labnet:
+        ipv4_address: 10.89.0.4
 
   ssh:
     image: rastasheep/ubuntu-sshd:18.04
@@ -37,7 +38,8 @@ services:
     environment:
       - SSH_PASSWORD=toor
     networks:
-      - labnet
+      labnet:
+        ipv4_address: 10.89.0.5
 
   ftp:
     image: delfer/alpine-ftp-server
@@ -46,7 +48,8 @@ services:
       - USERS=ftpuser|ftppass|/ftp|10000  # user|password|home|uid
       - ADDRESS=ftp
     networks:
-      - labnet
+      labnet:
+        ipv4_address: 10.89.0.6
     restart: unless-stopped
 
   mysql:
@@ -56,13 +59,15 @@ services:
       MYSQL_ROOT_PASSWORD: rootpass
       MYSQL_DATABASE: testdb
     networks:
-      - labnet
+      labnet:
+        ipv4_address: 10.89.0.7
 
   redis:
     image: redis:alpine
     container_name: lab_redis
     networks:
-      - labnet
+      labnet:
+        ipv4_address: 10.89.0.8
 
   smb:
     image: dperson/samba
@@ -71,14 +76,16 @@ services:
     volumes:
       - ./smbdata:/data
     networks:
-      - labnet
+      labnet:
+        ipv4_address: 10.89.0.9
 
   smtp:
     image: mailhog/mailhog
     container_name: lab_smtp
     command: ["tail", "-f", "/dev/null"]   # mantém o container vivo
     networks:
-      - labnet
+      labnet:
+        ipv4_address: 10.89.0.10
 
   dns:
     image: andyshinn/dnsmasq:2.78
@@ -92,7 +99,8 @@ services:
       - NET_BIND_SERVICE
       - NET_RAW
     networks:
-      - labnet
+      labnet:
+        ipv4_address: 10.89.0.11
     restart: unless-stopped
 
   vuln:
@@ -100,9 +108,13 @@ services:
       context: ./vuln_service
     container_name: lab_vuln
     networks:
-      - labnet
-    # expõe só internamente para o lab; não publish para host
+      labnet:
+        ipv4_address: 10.89.0.12
 
 networks:
   labnet:
     driver: bridge
+    ipam:
+      config:
+        - subnet: 10.89.0.0/24
+          gateway: 10.89.0.1

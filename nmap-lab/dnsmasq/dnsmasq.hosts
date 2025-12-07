@@ -1,10 +1,12 @@
-# hostname ip
-lab_nginx
-lab_apache
-lab_ssh
-lab_ftp
-lab_mysql
-lab_redis
-lab_smb
-lab_smtp
-lab_vuln
+#IP hostname
+10.89.0.2 attacker
+10.89.0.3 lab_nginx
+10.89.0.4 lab_apache
+10.89.0.5 lab_ssh
+10.89.0.6 lab_ftp
+10.89.0.7 lab_mysql
+10.89.0.8 lab_redis
+10.89.0.9 lab_smb 
+10.89.0.10 lab_smtp
+10.89.0.11 lab_dns 
+10.89.0.12 lab_vuln
