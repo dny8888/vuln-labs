@@ -40,13 +40,11 @@ services:
       - labnet
 
   ftp:
-    image: stilliard/pure-ftpd:hardened
+    image: delfer/alpine-ftp-server
     container_name: lab_ftp
     environment:
-      - PUBLICHOST=localhost
-      - FTP_USER_NAME=ftpuser          # Usuário FTP
-      - FTP_USER_PASS=ftppass          # Senha FTP
-      - FTP_USER_HOME=/home/ftpusers/ftpuser  # Diretório home
+      - USERS=ftpuser|ftppass|/ftp|10000  # user|password|home|uid
+      - ADDRESS=ftp
     networks:
       - labnet
     restart: unless-stopped
