@@ -308,11 +308,6 @@ Este projeto está licenciado sob a **MIT License** - veja o arquivo [LICENSE](L
 - [HackTheBox Academy](https://academy.hackthebox.com/)
 - [OWASP Testing Guide](https://owasp.org/www-project-web-security-testing-guide/)
 
-### Comunidades
-- [r/netsec](https://reddit.com/r/netsec)
-- [r/AskNetsec](https://reddit.com/r/AskNetsec)
-- [Hack The Box Discord](https://discord.gg/hackthebox)
-
 ### Ferramentas
 - [Kali Linux Tools](https://www.kali.org/tools/)
 - [SecLists](https://github.com/danielmiessler/SecLists) - Wordlists
