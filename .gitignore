@@ -1,0 +1,177 @@
+# Docker-Lab .gitignore
+
+# ====================================
+# Resultados de Scans (não versionar)
+# ====================================
+nmap_results/
+*_results/
+*.nmap
+*.gnmap
+*.xml
+scan_*/
+results_*/
+
+# ====================================
+# Dados de Containers
+# ====================================
+smbdata/*
+!smbdata/.gitkeep
+
+# Volumes Docker (se houver)
+volumes/
+data/
+
+# ====================================
+# Logs
+# ====================================
+*.log
+logs/
+docker-compose.log
+
+# ====================================
+# Temporários e Cache
+# ====================================
+*.tmp
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ====================================
+# Python
+# ====================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# ====================================
+# IDEs e Editores
+# ====================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# ====================================
+# Arquivos do Sistema Operacional
+# ====================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# ====================================
+# Backups
+# ====================================
+*.bak
+*.backup
+*.old
+*~
+
+# ====================================
+# Secrets e Credenciais (IMPORTANTE!)
+# ====================================
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+secrets/
+.env.local
+.env.*.local
+credentials.json
+config.json
+
+# ====================================
+# Arquivos Pessoais de Notas
+# ====================================
+NOTES.md
+notes/
+my_writeups/
+personal/
+
+# ====================================
+# Screenshots (opcional - comente se quiser versionar)
+# ====================================
+# screenshots/
+# *.png
+# *.jpg
+# *.jpeg
+
+# ====================================
+# Arquivos Compilados
+# ====================================
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+*.dylib
+
+# ====================================
+# Pacotes Comprimidos
+# ====================================
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# ====================================
+# Node (caso adicione ferramentas JS)
+# ====================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# ====================================
+# Mantém estrutura de diretórios vazios
+# ====================================
+!.gitkeep

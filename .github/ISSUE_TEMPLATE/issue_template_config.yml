@@ -1,0 +1,17 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 GitHub Discussions
+    url: https://github.com/seu-usuario/docker-lab/discussions
+    about: Perguntas, ideias e discussões gerais
+  
+  - name: 📚 Documentation
+    url: https://github.com/seu-usuario/docker-lab/blob/main/README.md
+    about: Leia a documentação completa do projeto
+  
+  - name: 🔒 Security Issues
+    url: https://github.com/seu-usuario/docker-lab/security/advisories/new
+    about: Reporte vulnerabilidades de segurança de forma privada
+  
+  - name: 💡 Feature Suggestions
+    url: https://github.com/seu-usuario/docker-lab/discussions/categories/ideas
+    about: Sugira novas features ou melhorias (informal)
