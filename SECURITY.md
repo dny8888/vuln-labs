@@ -85,8 +85,7 @@ Apenas a versão mais recente é ativamente mantida:
 Para reportar vulnerabilidades de segurança LEGÍTIMAS:
 
 1. **Email Privado:**
-   - Envie para: `security@seu-dominio.com` (substitua)
-   - Ou use: [seu-email-pessoal@example.com]
+   - [dny8888@gmail.com]
 
 2. **GitHub Security Advisory:**
    - Vá para a aba "Security" do repositório

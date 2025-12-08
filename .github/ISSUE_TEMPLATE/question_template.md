@@ -47,7 +47,7 @@ assignees: ''
 
 <!-- 
 💡 Considere usar GitHub Discussions para perguntas:
-https://github.com/seu-usuario/docker-lab/discussions
+https://github.com/dny8888/vuln-labs/discussions
 
 Issues são melhor usadas para bugs e features.
 Discussions são ideais para perguntas e ajuda.
