@@ -133,7 +133,7 @@ docker compose up -d --build
  ✔ Container lab_smb                Started
  ✔ Container lab_smtp               Started
  ✔ Container lab_dns                Started
- ✔ Container lab_vuln               Started
+ ✔ Container lab_pyserver               Started
 ```
 
 ---
@@ -153,18 +153,18 @@ docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
 **Saída esperada:**
 
 ```
-NAME              STATUS              PORTS
-lab_attacker      Up 2 minutes        
-lab_nginx         Up 2 minutes        80/tcp
-lab_apache        Up 2 minutes        80/tcp
-lab_ssh           Up 2 minutes        22/tcp
-lab_ftp           Up 2 minutes        21/tcp, 30000-30009/tcp
-lab_mysql         Up 2 minutes        3306/tcp, 33060/tcp
-lab_redis         Up 2 minutes        6379/tcp
-lab_smb           Up 2 minutes        139/tcp, 445/tcp
-lab_smtp          Up 2 minutes        1025/tcp, 8025/tcp
-lab_dns           Up 2 minutes        53/tcp, 53/udp
-lab_vuln          Up 2 minutes        9999/tcp
+NAMES         STATUS                  PORTS
+lab_attacker  Up 8 minutes
+lab_nginx     Up 8 minutes            80/tcp
+lab_apache    Up 8 minutes            80/tcp
+lab_ssh       Up 8 minutes            2222/tcp
+lab_ftp       Up 8 minutes            21/tcp, 21000-21010/tcp
+lab_mysql     Up 8 minutes            3306/tcp, 33060/tcp
+lab_redis     Up 8 minutes            6379/tcp
+lab_smb       Up 8 minutes (healthy)  139/tcp, 445/tcp, 137-138/udp
+lab_smtp      Up 8 minutes            1025/tcp, 8025/tcp
+lab_dns       Up 8 minutes            53/tcp, 53/udp
+lab_pyserver      Up 8 minutes            9999/tcp
 ```
 
 ### 2. Verificar Logs (Troubleshooting)
@@ -174,7 +174,7 @@ lab_vuln          Up 2 minutes        9999/tcp
 docker compose logs
 
 # Logs de um container específico
-docker compose logs lab_vuln
+docker compose logs lab_pyserver
 
 # Seguir logs em tempo real
 docker compose logs -f lab_attacker
@@ -201,15 +201,15 @@ ip addr show eth0 | grep inet
 
 # Testar conectividade com outros hosts
 ping -c 2 10.89.0.3  # lab_nginx
-ping -c 2 lab_vuln   # usando DNS interno
+ping -c 2 lab_pyserver   # usando DNS interno
 
 # Verificar resolução DNS
 nslookup lab_mysql
 getent hosts lab_ssh
 
 # Testar porta específica
-nc -zv lab_vuln 9999
-# Esperado: lab_vuln [10.89.0.12] 9999 (?) open
+nc -zv lab_pyserver 9999
+# Esperado: lab_pyserver [10.89.0.12] 9999 (?) open
 ```
 
 ### 5. Teste Rápido de Scan
@@ -345,7 +345,7 @@ cat /etc/resolv.conf
 # Deve conter o IP do container DNS (10.89.0.11)
 
 # Testar DNS manualmente
-nslookup lab_vuln 10.89.0.11
+nslookup lab_pyserver 10.89.0.11
 ```
 
 **Se não funcionar:**

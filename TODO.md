@@ -44,7 +44,7 @@
   - *Prazo:* Esta semana
 
 - [ ] **Documentar exploração - write-up modelo**  
-  - [ ] Criar template de write-up
+  - [x] Criar template de write-up
   - [ ] Escrever write-up do vuln_service
   - [ ] Adicionar screenshots
   - *Prazo:* Esta semana

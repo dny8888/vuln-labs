@@ -8,7 +8,7 @@
 > 🔐 Ambiente Docker completo e isolado para treinamento prático em **Nmap**, **Red Team** e técnicas de **Pentesting**
 
 <p align="center">
-  <img src="docs/assets/lab-diagram.png" alt="Lab Network Topology" width="600">
+  <img src="docs/assets/diagram.png" alt="Lab Network Topology" width="300">
 </p>
 
 ---
@@ -84,7 +84,7 @@ nmap -sn 10.89.0.0/24
 nmap -sS -Pn -T4 --open -p 21,22,80,443,445,3306,6379,9999 10.89.0.0/24
 
 # Enumeração completa do serviço vulnerável
-nmap -sV -sC -p9999 lab_vuln
+nmap -sV -sC -p9999 lab_pyserver
 ```
 
 ### Derrubar o Lab
@@ -100,7 +100,7 @@ docker compose down --volumes
 
 ### Topologia da Rede
 
-**Em breve.**
+![Diagrama](docs/assets/diagram.png)
 
 ### Serviços Disponíveis
 
@@ -116,7 +116,7 @@ docker compose down --volumes
 | `lab_smb` | 10.89.0.9 | 445 | Samba/SMB | Open shares |
 | `lab_smtp` | 10.89.0.10 | 25,8025 | Mail Server | Open relay |
 | `lab_dns` | 10.89.0.11 | 53 | DNS Server | Zone transfer |
-| `lab_vuln` | 10.89.0.12 | 9999 | **Custom Vuln Service** | ⚠️ Command Injection, Weak Auth |
+| `lab_pyserver` | 10.89.0.12 | 9999 | **Custom Vuln Service** | ⚠️ Command Injection, Weak Auth |
 
 ---
 

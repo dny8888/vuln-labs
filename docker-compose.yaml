@@ -1,7 +1,7 @@
 services:
   attacker:
     build:
-      context: ./attacker
+      context: ./services/attacker
     container_name: lab_attacker
     tty: true
     stdin_open: true
@@ -72,7 +72,10 @@ services:
   smb:
     image: dperson/samba
     container_name: lab_smb
-    command: "-s \"share;/data;yes;no;no;all;none\" -u \"guest;\""
+    environment:
+      - USER=guest;
+      - SHARE=share;/data;yes;no;yes;all;guest;guest;  # guest access
+    command: '-u "guest;" -s "share;/data;yes;no;yes;all;guest"'
     volumes:
       - ./smbdata:/data
     networks:
@@ -82,7 +85,7 @@ services:
   smtp:
     image: mailhog/mailhog
     container_name: lab_smtp
-    command: ["tail", "-f", "/dev/null"]   # mantém o container vivo
+    # command: ["tail", "-f", "/dev/null"]   # mantém o container vivo
     networks:
       labnet:
         ipv4_address: 10.89.0.10
@@ -92,8 +95,8 @@ services:
     container_name: lab_dns
     command: ["-k", "-C", "/etc/dnsmasq.conf"]
     volumes:
-      - ./dnsmasq/dnsmasq.conf:/etc/dnsmasq.conf:ro
-      - ./dnsmasq/dnsmasq.hosts:/etc/dnsmasq.hosts:ro
+      - ./services/dnsmasq/dnsmasq.conf:/etc/dnsmasq.conf:ro
+      - ./services/dnsmasq/dnsmasq.hosts:/etc/dnsmasq.hosts:ro
     cap_add:
       - NET_ADMIN
       - NET_BIND_SERVICE
@@ -105,8 +108,8 @@ services:
 
   vuln:
     build:
-      context: ./vuln_service
-    container_name: lab_vuln
+      context: ./services/vuln_service
+    container_name: lab_pyserver
     networks:
       labnet:
         ipv4_address: 10.89.0.12
