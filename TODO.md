@@ -35,12 +35,12 @@
 
 ### 🔴 Prioridade CRÍTICA
 
-- [ ] **Testar todas as vulnerabilidades manualmente**  
-  - [ ] Command injection (vuln_service)
-  - [ ] Weak authentication (vuln_service)
-  - [ ] SSH brute force (lab_ssh)
-  - [ ] MySQL root access (lab_mysql)
-  - [ ] Redis no auth (lab_redis)
+- [x] **Testar todas as vulnerabilidades manualmente**  
+  - [x] Command injection (vuln_service)
+  - [x] Weak authentication (vuln_service)
+  - [x] SSH brute force (lab_ssh)
+  - [x] MySQL root access (lab_mysql)
+  - [x] Redis no auth (lab_redis)
   - *Prazo:* Esta semana
 
 - [ ] **Documentar exploração - write-up modelo**  
@@ -53,14 +53,14 @@
 
 - [ ] **Melhorar README.md principal**  
   - [x] ~~Remover conteúdo duplicado~~
-  - [ ] Adicionar diagrama visual da rede
+  - [x] Adicionar diagrama visual da rede
   - [ ] Criar seção de FAQ
   - [ ] Adicionar GIFs demonstrativos
   - *Prazo:* Próxima semana
 
 - [ ] **Completar documentação modular (docs/)**  
   - [x] ~~01-setup.md (completo)~~
-  - [ ] 02-host-discovery.md (expandir com exemplos)
+  - [x] 02-host-discovery.md (expandir com exemplos)
   - [ ] 03-port-scanning.md (expandir com exemplos)
   - [ ] 04-service-enumeration.md (expandir)
   - [ ] 05-nse-scripts.md (listar scripts úteis)
@@ -87,15 +87,15 @@
 
 ### 🟢 Prioridade BAIXA
 
-- [ ] **Criar CONTRIBUTING.md**
-  - [ ] Guidelines de contribuição
-  - [ ] Code of conduct
-  - [ ] Como reportar bugs
-  - [ ] Como sugerir features
+- [x] **Criar CONTRIBUTING.md**
+  - [x] Guidelines de contribuição
+  - [x] Code of conduct
+  - [x] Como reportar bugs
+  - [x] Como sugerir features
   - *Prazo:* 1 mês
 
 - [ ] **Adicionar LICENSE (MIT)**
-  - [ ] Arquivo LICENSE
+  - [x] Arquivo LICENSE
   - [ ] Atualizar headers dos scripts
   - *Prazo:* 1 mês
 
