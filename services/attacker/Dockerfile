@@ -55,8 +55,12 @@ RUN if [ -f /usr/lib/nmap/nmap ]; then \
 # ============================================================================
 
 # Criar diretórios de trabalho
-RUN mkdir -p /root/{nmap_results,exploits,loot,wordlists,scripts} && \
-    mkdir -p /root/.config
+RUN mkdir -p /root/nmap_results \
+             /root/exploits \
+             /root/loot \
+             /root/wordlists \
+             /root/scripts \
+             /root/.config
 
 # Configurar aliases úteis
 RUN echo 'alias ll="ls -lath"' >> /root/.bashrc && \
