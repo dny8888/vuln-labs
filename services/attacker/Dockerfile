@@ -73,6 +73,12 @@ RUN echo 'syntax on' >> /root/.vimrc && \
     echo 'set expandtab' >> /root/.vimrc && \
     echo 'set autoindent' >> /root/.vimrc
 
+# Criar diretório do placar
+#RUN mkdir -p /root/.ctf && chmod 700 /root/.ctf
+
+# Copiar binário do CTF
+#COPY ctf-cli /usr/local/bin/ctf-cli
+#RUN chmod +x /usr/local/bin/ctf-cli
 # ============================================================================
 # CAMADA 4: Configurações finais
 # ============================================================================

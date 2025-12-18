@@ -269,44 +269,6 @@ cat targets.txt
 
 ---
 
-## 🐛 Troubleshooting
-
-### Nenhum host encontrado?
-
-```bash
-# Verificar sua rede
-ip addr show eth0
-
-# Testar conectividade
-ping -c 1 10.89.0.1
-
-# Forçar ARP
-sudo nmap -sn -PR 10.89.0.0/24
-```
-
----
-
-### Scan muito lento?
-
-```bash
-# Aumentar velocidade
-nmap -sn -T4 10.89.0.0/24
-
-# Reduzir retransmissões
-nmap -sn --max-retries 1 10.89.0.0/24
-```
-
----
-
-### Permission denied?
-
-```bash
-# Usar sudo
-sudo nmap -sn 10.89.0.0/24
-```
-
----
-
 ## 📚 Referência Rápida
 
 ```bash
